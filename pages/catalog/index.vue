@@ -11,7 +11,10 @@
             :key="link.id"
             @click="$router.push('catalog' + link.link)"
         >
-          {{ link.name }}
+          <div class="flex items-center gap-[5px]">
+            <img class="w-[20px] h-[20px]" :src="`http://localhost:3002${link.image}`" alt="Logo">
+            <span class="block">{{ link.name }}</span>
+          </div>
         </NuxtLink>
       </div>
     </div>
