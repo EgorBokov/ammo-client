@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col justify-between pb-[10px] h-[100vh]">
+  <div class="flex flex-col justify-between pb-[10px] h-[100%]">
     <header>
       <TheNavbar />
     </header>
