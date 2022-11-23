@@ -2,7 +2,6 @@
   <TheContainer title="Одежда">
     <div v-if="pending">Loading...</div>
     <div v-else>
-
     </div>
   </TheContainer>
 </template>

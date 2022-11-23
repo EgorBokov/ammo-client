@@ -12,7 +12,7 @@
           :key="item.id"
           :id="item.id"
           :name="item.name"
-          :price="item.price"
+          price="2500-4000"
           route="backpacks"
       >
         <img class="max-h-[200px]" :src="`http://localhost:3002${item.image}`" alt="Изображение товара">
@@ -22,4 +22,7 @@
 </template>
 <script setup lang="ts">
 const { pending, data } = useLazyFetch('http://localhost:3002/api/backpacks')
+setTimeout(() => {
+  console.log(data)
+}, 2000)
 </script>

@@ -4,9 +4,9 @@
       Загрузка...
     </p>
     <div v-else>
-      <div class="flex gap-[10px]">
+      <div class="flex gap-[10px] flex-wrap">
         <NuxtLink
-            class="border-2 p-2 rounded-full border-[rgb(255,215,44)] cursor-pointer duration-300 hover:bg-bumblebee"
+            class="border-2 min-w-[92px] p-2 rounded-full border-[rgb(255,215,44)] cursor-pointer duration-300 hover:bg-bumblebee text-xs lg:text-base"
             v-for="link in data"
             :key="link.id"
             @click="$router.push('catalog' + link.link)"
