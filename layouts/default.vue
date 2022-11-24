@@ -1,5 +1,10 @@
 <template>
-  <div class="relative flex flex-col justify-between pb-[10px] h-[100%]">
+  <div class="relative flex h-full flex-col justify-between pb-[10px] h-[100%]">
+    <div
+        v-if="modalWindow.isOpened && modalWindow.name === 'formModal'"
+        class="fixed top-0 left-0 w-full h-full z-20">
+      <TheModal />
+    </div>
     <div class="fixed bottom-[20px] right-[20px] md:hidden">
       <div class="relative">
         <div
@@ -47,5 +52,10 @@
     color: 'success',
     title: 'Товар успешно добавлен в корзину',
     isOpened: false
+  }))
+
+  const modalWindow = useState('modalWindow', () => ({
+    name: '',
+    isOpened: true
   }))
 </script>

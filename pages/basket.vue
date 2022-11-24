@@ -2,7 +2,14 @@
   <TheContainer title="Моя корзина">
     <div v-if="basket.length">
       <div class="flex items-center justify-between">
-        <div class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer">Оформить заказ</div>
+        <p v-if="commonValue < 100">Минимальное количество единиц товара для заказа: <span class="font-bold">100</span></p>
+        <div
+            v-else
+            class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer"
+            @click="createOrder"
+        >
+          Оформить заказ
+        </div>
         <p class="text-right">Общее количество товара:
           <span class="font-bold">{{ commonValue }}</span> ед.
         </p>
@@ -11,13 +18,13 @@
       <div class="grid grid-cols-3 gap-x-2 gap-y-3 mt-[20px]">
         <div
             v-for="(item, idx) in basket"
-            class="relative cursor-pointer rounded-[10px]"
+            class="relative cursor-pointer rounded-[10px] border-2 border-light-gray p-[5px]"
         >
           <div
               @click="removeFromBasket(idx)"
-              class="absolute right-0 rounded-[6px] bg-error border-2 w-[25px] duration-300 flex justify-center items-center h-[25px] border-error hover:bg-[#fff]"
+              class="absolute right-[5px] rounded-[6px] text-[#fff] hover:text-error bg-error border-2 w-[25px] duration-300 flex justify-center items-center h-[25px] border-error hover:bg-[#fff]"
           >
-            x
+            ×
           </div>
           <img
               :src="`${BACKEND_URL}/${item.image}`"
@@ -47,6 +54,8 @@
   const BACKEND_URL = config.public.backendURL
 
   const basket = useState('basket')
+  const modal = useState('modalWindow')
+
   const commonValue = computed(() => {
     let totalAmount = 0
     if (basket.value.length) {
@@ -59,5 +68,10 @@
 
   const removeFromBasket = (id) => {
     basket.value = [...basket.value.filter((item, idx) => idx !== id)]
+  }
+
+  const createOrder = (): void => {
+    modal.value.name = 'formModal'
+    modal.value.isOpened = true
   }
 </script>

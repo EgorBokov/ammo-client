@@ -14,7 +14,9 @@ module.exports = {
       'light-gray': 'rgba(112, 128, 144, 0.3)',
       'bumblebee': 'rgb(255,215,44)',
       'success': 'rgb(64, 171, 89)',
-      'error': 'rgb(232, 53, 0)'
+      'error': 'rgb(232, 53, 0)',
+      'white': '#FFFFFF',
+      'modal-shadow': 'rgba(0, 0, 0, 0.4)'
     },
     extend: {
       boxShadow: {
