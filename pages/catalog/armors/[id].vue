@@ -13,10 +13,10 @@
           :extraInfo="data?.extra_info"
       >
         <template v-if="data.images.length > 1">
-          <img v-for="img in data.images" :src="`http://localhost:3002/${img}`" class="max-h-[300px]" alt="Фотография товара">
+          <img v-for="img in data.images" :src="`${BACKEND_URL}/${img}`" class="max-h-[300px]" alt="Фотография товара">
         </template>
         <template v-else>
-          <img :src="`http://localhost:3002/${data.images[0]}`" class="max-h-[300px]" alt="Фотография товара">
+          <img :src="`${BACKEND_URL}/${data.images[0]}`" class="max-h-[300px]" alt="Фотография товара">
         </template>
         <template v-slot:description>
           <div v-if="data?.prim" class="mt-[10px]">
@@ -68,7 +68,9 @@
 </template>
 <script setup lang="ts">
   const route = useRoute()
-  const { pending, data } = useLazyFetch('http://localhost:3002/api/guards/' + route.params.id)
+  const config = useRuntimeConfig()
+  const BACKEND_URL = config.public.backendURL
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/guards/` + route.params.id)
   const basket = useState('basket')
   const isItemAdded = useState('isItemAdded')
 

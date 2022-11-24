@@ -1,5 +1,8 @@
 <template>
-  <TheContainer title="Главная страница" isTransparentContent>
+  <TheContainer
+      title="Главная страница"
+      isTransparentContent
+  >
     <div v-if="pending">Loading...</div>
     <div v-else class="p-[10px] flex flex-col gap-3">
       <div class="flex gap-3">
@@ -20,7 +23,7 @@
               @click="$router.push('catalog' + link.link)"
           >
             <div class="flex items-center gap-[5px]">
-              <img class="w-[20px] h-[20px]" :src="`http://localhost:3002${link.image}`" alt="Logo">
+              <img class="w-[20px] h-[20px]" :src="`${BACKEND_URL}${link.image}`" alt="Logo">
               <span class="block">{{ link.name }}</span>
             </div>
           </NuxtLink>
@@ -51,11 +54,15 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
+const config = useRuntimeConfig()
+const BACKEND_URL = config.public.backendURL
+
 useHead({
   title: "Амуниция РФ | Рюкзаки, бронижелеты, амуниция оптом",
   meta: [
     { name: "description", content: "Амуниция РФ Рюкзаки оптом Термобелье оптом Аптечки отптом Бронижелеты оптом Щиты оптом Купить рюкзаки оптом"}
   ]
 })
-const { pending, data } = useLazyFetch('http://localhost:3002/api/categories')
+
+const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
 </script>

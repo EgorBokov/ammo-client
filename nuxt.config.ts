@@ -6,5 +6,10 @@ export default defineNuxtConfig({
             tailwindcss: {},
             autoprefixer: {}
         }
+    },
+    runtimeConfig: {
+        public: {
+            backendURL: 'http://localhost:3002'
+        }
     }
 })

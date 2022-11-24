@@ -12,7 +12,7 @@
             @click="$router.push('catalog' + link.link)"
         >
           <div class="flex items-center gap-[5px]">
-            <img class="w-[20px] h-[20px]" :src="`http://localhost:3002${link.image}`" alt="Logo">
+            <img class="w-[20px] h-[20px]" :src="`${BACKEND_URL}${link.image}`" alt="Logo">
             <span class="block">{{ link.name }}</span>
           </div>
         </NuxtLink>
@@ -22,4 +22,6 @@
 </template>
 <script setup lang="ts">
   const { pending, data } = useLazyFetch('http://localhost:3002/api/categories')
+  const config = useRuntimeConfig()
+  const BACKEND_URL = config.public.backendURL
 </script>

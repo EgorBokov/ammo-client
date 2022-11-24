@@ -20,7 +20,7 @@
             x
           </div>
           <img
-              :src="`http://localhost:3002/${item.image}`"
+              :src="`${BACKEND_URL}/${item.image}`"
               alt="Изображение товара"
               class="max-h-[200px]"
           >
@@ -43,6 +43,8 @@
 
 <script setup lang="ts">
   import {moneyConvert} from "~/utils/moneyConvert";
+  const config = useRuntimeConfig()
+  const BACKEND_URL = config.public.backendURL
 
   const basket = useState('basket')
   const commonValue = computed(() => {
