@@ -28,10 +28,55 @@
           </div>
         </template>
       </TheProductInside>
+      <div class="flex gap-[10px] justify-end p-[10px]">
+        <div class="flex flex-col items-end gap-3">
+          <div
+            style="max-width: 200px"
+            class="border-[2px] cursor-pointer text-center border-[#000] p-[10px] hover:bg-[rgba(0,0,0,.3)] rounded-[6px] duration-300"
+            @click="addToCart"
+          >
+            Добавить в корзину
+          </div>
+          <input
+            v-model="amountValue"
+            class="border-[2px] rounded-[4px] p-[12px] focus:border-bumblebee focus-visible:border-bumblebee"
+            type="number"
+            min="1"
+          >
+        </div>
+      </div>
     </div>
   </TheContainer>
 </template>
 
 <script setup lang="ts">
   const { pending, data } = useLazyFetch(`http://localhost:3002/api/shields/${useRoute().params.id}`)
+  const route = useRoute()
+  const basket = useState('basket')
+  const isItemAdded = useState('isItemAdded')
+  const amountValue = ref(1)
+
+  interface IProduct {
+    name: string
+    articul: number | string
+    price: number| string
+    image: string
+    amount: number | string
+    link: string
+  }
+
+  const addToCart = (): void => {
+    const product: IProduct = {
+      name: data.value.name,
+      articul: data.value.articul,
+      price: data.value.price,
+      amount: amountValue.value,
+      image: data.value.images[0],
+      link: route.fullPath
+    }
+    basket.value.push(product)
+    isItemAdded.value.isOpened = true
+    setTimeout(() => isItemAdded.value.isOpened = false, 3000)
+    amountValue.value = 1
+  }
 </script>

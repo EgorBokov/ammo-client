@@ -31,19 +31,22 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col gap-[10px] max-w-[200px]" style="align-items: end">
-          <div
-              style="max-width: 200px"
-              class="border-[2px] cursor-pointer text-center border-[#000] p-[10px] hover:bg-[rgba(0,0,0,.2)] rounded-[6px] hover:bg-[#fff] duration-300"
-          >
-            Добавить в корзину
+        <div class="flex gap-[10px] justify-end p-[10px]">
+          <div class="flex flex-col items-end gap-3">
+            <div
+                style="max-width: 200px"
+                class="border-[2px] cursor-pointer text-center border-[#000] p-[10px] hover:bg-[rgba(0,0,0,.3)] rounded-[6px] duration-300"
+                @click="addToCart"
+            >
+              Добавить в корзину
+            </div>
+            <input
+                v-model="amountValue"
+                class="border-[2px] rounded-[4px] p-[12px] focus:border-bumblebee focus-visible:border-bumblebee"
+                type="number"
+                min="1"
+            >
           </div>
-          <input
-              v-model="amountValue"
-              class="border-[2px] rounded-[4px] p-[12px] focus:border-bumblebee focus-visible:border-bumblebee"
-              type="number"
-              min="1"
-          >
         </div>
       </div>
     </div>
@@ -54,4 +57,30 @@
   const route = useRoute()
   const { pending, data } = useLazyFetch(`http://localhost:3002/api/medicine/${route.params.id}`)
   const amountValue = ref(1)
+  const basket = useState('basket')
+  const isItemAdded = useState('isItemAdded')
+
+  interface IProduct {
+    name: string
+    articul: number | string
+    price: number| string
+    image: string
+    amount: number | string
+    link: string
+  }
+
+  const addToCart = () => {
+    const product: IProduct = {
+      name: data.value.name,
+      price: data.value.price,
+      articul: data.value.articul,
+      image: data.value.image,
+      amount: amountValue.value,
+      link: route.fullPath
+    }
+    basket.value.push(product)
+    isItemAdded.value.isOpened = true
+    setTimeout(() => isItemAdded.value.isOpened = false, 3000)
+    amountValue.value = 1
+  }
 </script>

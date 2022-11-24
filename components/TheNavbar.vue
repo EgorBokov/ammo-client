@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#fff] h-[80px] px-[20px] py-[1rem] flex items-center justify-between shadow-[]">
-    <p class="font-bold cursor-pointer" @click="$router.push('/catalog')">Амуниция РФ</p>
+    <p class="font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
     <nav class="flex items-center gap-[10px]">
       <NuxtLink
           v-for="item in links"

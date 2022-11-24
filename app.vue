@@ -5,11 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  const totalCartAmount = useState('cart-amount', () => 0)
-
-  const basket = useState('basket', () => [
-    {id: 1, name: 'Аптечка'}
-  ])
+  const basket = useState('basket', () => [])
 </script>
 
 <style lang="scss">

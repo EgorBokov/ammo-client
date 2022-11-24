@@ -22,7 +22,7 @@
 <script setup>
 defineProps({
   price: {
-    type: Number,
+    type: [Number, String],
     required: true
   },
   name: {

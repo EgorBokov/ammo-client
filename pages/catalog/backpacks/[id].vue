@@ -18,11 +18,11 @@
               <div
                   v-for="(item, idx) in data.sizes"
                   :key="idx"
-                  class="rounded-[100px] bg-light-gray px-[10px] py-[6px] duration-300 hover:bg-bumblebee cursor-pointer"
-                  :class="[chosenSize === item ? 'bg-bumblebee': '']"
+                  class="rounded-[100px] px-[10px] py-[6px] duration-300 hover:bg-bumblebee cursor-pointer"
+                  :class="[chosenSize === item ? 'bg-bumblebee' : 'bg-light-gray']"
                   @click="chosenSize = item; currentPrice = idx"
               >
-                {{ item }}
+                {{ item }}л.
               </div>
             </div>
           </div>
@@ -47,16 +47,27 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
+interface IProduct {
+  name: string
+  articul: number | string
+  size: string
+  price: number| string
+  image: string
+  amount: number | string
+  link: string
+}
+
 const route = useRoute()
 const basket = useState('basket')
+const isItemAdded = useState('isItemAdded')
 const { pending, data } = useLazyFetch(`http://localhost:3002/api/backpacks/${useRoute().params.id}`)
 const amountValue = ref(1)
 const chosenSize = ref(data.value?.sizes[0])
 const prices = [2500, 3000, 3500, 4000, 4000]
 const currentPrice = ref(0)
 
-const addToCart = () => {
-  const product = {
+const addToCart = (): void => {
+  const product: IProduct = {
     name: data.value.name,
     articul: data.value.articul,
     size: chosenSize.value,
@@ -65,8 +76,9 @@ const addToCart = () => {
     image: data.value.image,
     link: route.fullPath
   }
-  console.log(product)
   basket.value.push(product)
-  console.log(basket)
+  isItemAdded.value.isOpened = true
+  setTimeout(() => isItemAdded.value.isOpened = false, 3000)
+  amountValue.value = 1
 }
 </script>

@@ -16,6 +16,20 @@
         </div>
       </div>
     </div>
+    <div
+        class="fixed top-[20px] duration-500 rounded-[10px] bg-success text-[#fff] px-[20px] py-[10px] flex justify-between items-center gap-5"
+        :class="[isItemAdded.isOpened ? 'translate-x-[20px]' : 'translate-x-[-1000px]']"
+    >
+      <div>
+        {{ isItemAdded.title }}
+      </div>
+      <div
+          class="flex justify-center items-center cursor-pointer duration-300 hover:bg-[#fff] rounded-full w-[20px] h-[20px]"
+          @click="isItemAdded.isOpened = false"
+      >
+        &#10006;
+      </div>
+    </div>
     <header>
       <TheNavbar />
     </header>
@@ -27,6 +41,11 @@
     </footer>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
   const cartAmount = useState('basket')
+  const isItemAdded = useState('isItemAdded', () => ({
+    color: 'success',
+    title: 'Товар успешно добавлен в корзину',
+    isOpened: false
+  }))
 </script>

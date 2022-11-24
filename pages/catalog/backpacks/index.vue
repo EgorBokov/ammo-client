@@ -22,7 +22,4 @@
 </template>
 <script setup lang="ts">
 const { pending, data } = useLazyFetch('http://localhost:3002/api/backpacks')
-setTimeout(() => {
-  console.log(data)
-}, 2000)
 </script>

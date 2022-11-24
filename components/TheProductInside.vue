@@ -9,7 +9,7 @@
           <div class="flex flex-col gap-[10px]">
             <div>
               <p class="text-xl">{{ name }}</p>
-              <p class="font-bold"> {{ price }}₽</p>
+              <p class="font-bold"> {{ formattedPrice }}</p>
             </div>
           </div>
           <div v-if="description.length">
@@ -21,30 +21,20 @@
       </div>
     </div>
     <slot name="description" />
-    <div class="flex flex-col gap-[10px] max-w-[200px] self-end" style="align-items: end">
-      <div
-          style="max-width: 200px"
-          class="border-[2px] cursor-pointer text-center border-[#000] p-[10px] hover:bg-[rgba(0,0,0,.3)] rounded-[6px] duration-300"
-      >
-        Добавить в корзину
-      </div>
-      <input
-          v-model="amountValue"
-          class="border-[2px] rounded-[4px] p-[12px] focus:border-bumblebee focus-visible:border-bumblebee"
-          type="number"
-          min="1"
-      >
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-  const amountValue = ref(1)
-
-  defineProps({
+  const props = defineProps({
     id: { type: Number, required: true},
     name: {type: String, required: true },
     price: { type: Number, required: true },
-    description: { type: Array, default: () => ([])}
+    description: { type: Array, default: () => ([])},
   })
+
+  const formattedPrice = computed(() => new Intl.NumberFormat('ru-RU', {
+    currency: "RUB",
+    style: "currency",
+    maximumFractionDigits: 0
+  }).format(props.price))
 </script>

@@ -1,9 +1,39 @@
 <template>
   <TheContainer title="Моя корзина">
-    <div v-if="cartAmount">
-      <p class="text-right">Общее количество товара:
-        <span class="font-bold">{{ cartAmount }}</span> ед.
-      </p>
+    <div v-if="basket.length">
+      <div class="flex items-center justify-between">
+        <div class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer">Оформить заказ</div>
+        <p class="text-right">Общее количество товара:
+          <span class="font-bold">{{ commonValue }}</span> ед.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-3 gap-x-2 gap-y-3 mt-[20px]">
+        <div
+            v-for="(item, idx) in basket"
+            class="relative cursor-pointer rounded-[10px]"
+        >
+          <div
+              @click="removeFromBasket(idx)"
+              class="absolute right-0 rounded-[6px] bg-error border-2 w-[25px] duration-300 flex justify-center items-center h-[25px] border-error hover:bg-[#fff]"
+          >
+            x
+          </div>
+          <img
+              :src="`http://localhost:3002/${item.image}`"
+              alt="Изображение товара"
+              class="max-h-[200px]"
+          >
+          <div>
+            <span class="font-bold block">{{ item.name }}</span>
+            <span class="font-bold block">{{ moneyConvert(item.price) }}</span>
+            <span class="block"><span class="font-bold">Количество:</span> {{ item.amount }} </span>
+            <span class="block">
+              <span v-if="item.size" class="font-bold">Размер:</span>{{ item.size }}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
     <div v-else class="text-center">
       <h1 class="font-bold text-2xl">Ваша корзина пуста!</h1>
@@ -12,5 +42,20 @@
 </template>
 
 <script setup lang="ts">
-  const cartAmount = useState('cart-amount')
+  import {moneyConvert} from "~/utils/moneyConvert";
+
+  const basket = useState('basket')
+  const commonValue = computed(() => {
+    let totalAmount = 0
+    if (basket.value.length) {
+      basket.value.forEach(item => {
+        totalAmount += Number(item.amount)
+      })
+    }
+    return totalAmount
+  })
+
+  const removeFromBasket = (id) => {
+    basket.value = [...basket.value.filter((item, idx) => idx !== id)]
+  }
 </script>
