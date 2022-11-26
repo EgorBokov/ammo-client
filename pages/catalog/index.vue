@@ -21,7 +21,7 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
-  const { pending, data } = useLazyFetch('http://localhost:3002/api/categories')
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
 </script>

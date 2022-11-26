@@ -9,7 +9,7 @@
         <div class="flex flex-col gap-[20px]">
           <div class="max-w-[320px] max-h-[320px]">
             <img
-                :src="`http://localhost:3002/${item.image}`"
+                :src="`${config.public.backendURL}/${item.image}`"
                 alt="Изображение товара"
                 aria-label="Изображение товара"
             />
@@ -30,8 +30,9 @@
 </template>
 
 <script setup lang="ts">
+  const config = useRuntimeConfig()
   const router = useRouter()
-  const { pending, data } = useLazyFetch('http://localhost:3002/api/medicine')
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine`)
 
   const basket = useState('basket')
 

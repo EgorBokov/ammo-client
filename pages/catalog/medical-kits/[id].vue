@@ -5,7 +5,7 @@
       <div>
         <div class="flex items-start gap-[10px]">
           <div class="max-w-[320px] max-h-[320px]">
-            <img :src="`http://localhost:3002/${data.image}`" alt="Фотография товара">
+            <img :src="`${config.public.backendURL}/${data.image}`" alt="Фотография товара">
           </div>
           <div class="flex flex-col gap-[10px]">
             <div>
@@ -54,8 +54,9 @@
 </template>
 
 <script setup lang="ts">
+  const config = useRuntimeConfig()
   const route = useRoute()
-  const { pending, data } = useLazyFetch(`http://localhost:3002/api/medicine/${route.params.id}`)
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine/${route.params.id}`)
   const amountValue = ref(1)
   const basket = useState('basket')
   const isItemAdded = useState('isItemAdded')

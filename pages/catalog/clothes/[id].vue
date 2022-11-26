@@ -8,7 +8,7 @@
           :id="data?.id"
           :description="data?.description"
       >
-        <img :src="`http://localhost:3002${data?.image}`" class="max-h-[300px]" alt="Фотография товара">
+        <img :src="`${config.public.backendURL}${data?.image}`" class="max-h-[300px]" alt="Фотография товара">
         <template v-slot:description>
           <div v-if="data?.extra_info" class="mt-[10px]">
             <p class="font-md font-bold">{{ data.extra_info[0] }}</p>
@@ -50,8 +50,9 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
+const config = useRuntimeConfig()
 const route = useRoute()
-const { pending, data } = useLazyFetch('http://localhost:3002/api/clothes/' + route.params.id)
+const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/clothes/${route.params.id}`)
 const basket = useState('basket')
 const isItemAdded = useState('isItemAdded')
 const amountValue = ref(1)

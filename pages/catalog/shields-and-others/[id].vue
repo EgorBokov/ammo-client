@@ -12,10 +12,10 @@
           :extraInfo="data?.extra_info"
       >
         <template v-if="data.images.length > 1">
-          <img v-for="img in data.images" :src="`http://localhost:3002/${img}`" alt="Фотография товара">
+          <img v-for="img in data.images" :src="`${config.public.backendURL}/${img}`" alt="Фотография товара">
         </template>
         <template v-else>
-          <img :src="`http://localhost:3002/${data.images[0]}`" alt="Фотография товара">
+          <img :src="`${config.public.backendURL}/${data.images[0]}`" alt="Фотография товара">
         </template>
         <template v-slot:description>
           <div v-if="data?.annotation" class="mt-[10px]">
@@ -50,7 +50,8 @@
 </template>
 
 <script setup lang="ts">
-  const { pending, data } = useLazyFetch(`http://localhost:3002/api/shields/${useRoute().params.id}`)
+  const config = useRuntimeConfig()
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/shields/${useRoute().params.id}`)
   const route = useRoute()
   const basket = useState('basket')
   const isItemAdded = useState('isItemAdded')

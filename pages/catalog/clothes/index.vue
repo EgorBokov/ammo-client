@@ -15,12 +15,13 @@
           :price="item.price"
           route="clothes"
       >
-        <img class="max-h-[200px]" :src="`http://localhost:3002${item.image}`" alt="Изображение товара">
+        <img class="max-h-[200px]" :src="`${config.public.backendURL}${item.image}`" alt="Изображение товара">
       </TheProductItem>
     </div>
   </TheContainer>
 </template>
 
 <script setup lang="ts">
-const { pending, data } = useLazyFetch('http://localhost:3002/api/clothes')
+const config = useRuntimeConfig()
+const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/clothes`)
 </script>
