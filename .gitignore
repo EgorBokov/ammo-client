@@ -5,5 +5,4 @@ node_modules
 .idea
 .cache
 .output
-.env
 dist
