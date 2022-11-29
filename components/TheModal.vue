@@ -97,7 +97,8 @@
   }
 
   const createPurchase = async () => {
-    // const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/create-order`)
+    const basket = useState('basket')
+
     const response = await $fetch(`${config.public.backendURL}/api/create-order`, {
       method: 'POST',
       body: {
@@ -105,7 +106,8 @@
         email: email.value,
         phone: phone.value,
         country: country.value,
-        city: city.value
+        city: city.value,
+        order: basket.value
       }
     })
     const showNotification = () => {

@@ -6,7 +6,7 @@
           v-for="item in links"
           :key="item.id"
           :to="item.href"
-          class="block p-[15px] text-xs lg:text-base text-black rounded-[100px] decoration-0 duration-300 hover:tracking-[0.4px] hover:bg-[rgba(255,215,44,1)]"
+          class="block select-none p-[15px] text-xs lg:text-base text-black rounded-[100px] decoration-0 duration-300 hover:tracking-[0.4px] hover:bg-[rgba(255,215,44,1)]"
           :class="checkCurrent(item.href)"
       >
         {{ item.name }}
@@ -32,7 +32,7 @@
   const cartAmount = useState('basket')
   const currentRoute = computed(() => useRouter().currentRoute.value.fullPath)
 
-  const checkCurrent = (path: string ): (string | '') => {
+  const checkCurrent = (path: string): string => {
     if (currentRoute.value.includes(path)) {
       return 'bg-[rgba(0,0,0,0.3)]'
     }

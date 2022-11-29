@@ -77,9 +77,29 @@ const addToCart = (): void => {
     image: data.value.image,
     link: route.fullPath
   }
-  basket.value.push(product)
-  isItemAdded.value.isOpened = true
-  setTimeout(() => isItemAdded.value.isOpened = false, 3000)
-  amountValue.value = 1
+
+
+  // const isItemAdded = useState('isItemAdded', () => ({
+  //   color: 'success',
+  //   title: 'Товар успешно добавлен в корзину',
+  //   isOpened: false
+  // }))
+
+  if (chosenSize.value) {
+    basket.value.push(product)
+    isItemAdded.value.color = 'success'
+    isItemAdded.value.title = 'Товар успешно добавлен в корзину'
+    isItemAdded.value.isOpened = true
+    setTimeout(() => isItemAdded.value.isOpened = false, 3000)
+    amountValue.value = 1
+  } else {
+    isItemAdded.value.color = 'error'
+    isItemAdded.value.title = 'Укажите количество выбранного товара'
+    isItemAdded.value.isOpened = true
+    setTimeout(() => isItemAdded.value.isOpened = false, 3000)
+  }
+
+  console.log(product)
+
 }
 </script>

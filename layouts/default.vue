@@ -22,8 +22,8 @@
       </div>
     </div>
     <div
-        class="fixed top-[20px] duration-500 rounded-[10px] bg-success text-[#fff] px-[20px] py-[10px] flex justify-between items-center gap-5"
-        :class="[isItemAdded.isOpened ? 'translate-x-[20px]' : 'translate-x-[-1000px]']"
+        class="fixed top-[20px] duration-500 rounded-[10px] text-[#fff] px-[20px] py-[10px] flex justify-between items-center gap-5"
+        :class="[isItemAdded.isOpened ? 'translate-x-[20px]' : 'translate-x-[-1000px]', isItemAdded.color ? `bg-${isItemAdded.color}` : 'bg-success']"
     >
       <div>
         {{ isItemAdded.title }}
