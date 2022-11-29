@@ -10,8 +10,8 @@
           <img src="../assets/guarantee.svg" alt="Знак качества">
         </div>
         <div class="flex flex-col rounded-[20px] p-[10px] bg-[#fff] w-full items-end">
-          <h2 class="font-bold text-xl">+7(999)-999-99-99</h2>
-          <p>ammunition-optom@ammorf.ru</p>
+          <h2 class="font-bold text-xl">+7(995)685-96-60</h2>
+          <p>ammunition.rf@gmail.com</p>
         </div>
       </div>
       <div class="flex gap-3">

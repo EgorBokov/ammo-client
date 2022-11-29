@@ -15,7 +15,7 @@
           :price="item.price"
           route="armors"
       >
-        <img :src="`${config.public.backendURL}/${item.images[0]}`" alt="Изображение товара">
+        <img :src="`${config.public.backendURL}/${item.images[0]}`" alt="Изображение товара" class="max-h-[320px]">
       </TheProductItem>
     </div>
   </TheContainer>
