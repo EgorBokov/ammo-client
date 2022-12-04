@@ -7,7 +7,7 @@
     <div v-else class="p-[10px] flex flex-col gap-3">
       <div class="flex gap-3">
         <div class="min-w-[180px] max-w-[180px] bg-[#fff] p-[10px] rounded-[20px]">
-          <img src="../assets/guarantee.svg" alt="Знак качества">
+          <img src="/guarantee.svg" alt="Знак качества">
         </div>
         <div class="flex flex-col rounded-[20px] p-[10px] bg-[#fff] w-full items-end">
           <h2 class="font-bold text-xl">+7(995)685-96-60</h2>

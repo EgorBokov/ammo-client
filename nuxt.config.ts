@@ -4,12 +4,12 @@ export default defineNuxtConfig({
     postcss: {
         plugins: {
             tailwindcss: {},
-            autoprefixer: {}
-        }
+            autoprefixer: {},
+        },
     },
     runtimeConfig: {
         public: {
             backendURL: process.env.backendURL
-        }
-    }
-})
+        },
+    },
+});

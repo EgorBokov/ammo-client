@@ -22,7 +22,7 @@
       >
         {{ cartAmount?.length > 99 ? '99+' : cartAmount?.length }}
       </div>
-      <img class="w-[24px] h-[23px]" src="../assets/cart.svg" alt="картинка корзинки" />
+      <img class="w-[24px] h-[23px]" src="/cart.svg" alt="картинка корзинки" />
     </div>
   </div>
 </template>

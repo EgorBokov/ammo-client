@@ -22,13 +22,13 @@
           <div v-if="data?.prim" class="mt-[10px]">
             <span class="font-bold">Описание: </span>
             <div class="flex items-center gap-3">
-              <img src="../../../assets/alright.svg" class="w-[20px] h-[20px]" alt="Подтверждено" />
+              <img src="/alright.svg" class="w-[20px] h-[20px]" alt="Подтверждено" />
               {{ data?.prim }}
             </div>
           </div>
           <div v-if="data.is_sertified" class="mt-[10px]">
             <div class="flex items-center gap-3">
-              <img src="../../../assets/alright.svg" class="w-[20px] h-[20px]" alt="Подтверждено" />
+              <img src="/alright.svg" class="w-[20px] h-[20px]" alt="Подтверждено" />
               Имеется сертификат
             </div>
           </div>

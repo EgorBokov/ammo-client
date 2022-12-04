@@ -4,7 +4,7 @@
       <div class="error__image-wrapper">
         <div class="error__image-border">
           <div class="error__image-container">
-            <img src="./assets/error.svg" alt="Error Page">
+            <img src="/error.svg" alt="Error Page">
           </div>
         </div>
       </div>
