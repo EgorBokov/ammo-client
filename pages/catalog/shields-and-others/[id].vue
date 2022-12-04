@@ -12,7 +12,7 @@
           :extraInfo="data?.extra_info"
       >
         <template v-if="data.images.length > 1">
-          <img v-for="img in data.images" :src="`${config.public.backendURL}/${img}`" alt="Фотография товара">
+          <img v-for="img in data.images" :src="`${config.public.backendURL}/${img}`" :key="img" alt="Фотография товара">
         </template>
         <template v-else>
           <img :src="`${config.public.backendURL}/${data.images[0]}`" alt="Фотография товара">
