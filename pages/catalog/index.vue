@@ -24,4 +24,13 @@
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
   const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
+  useHead({
+    title: 'Каталог товаров | Купить амуницию РФ',
+    meta: [
+        {
+            name: 'description',
+            content: 'Где купить амуницию Купить амуницию РФ Качественная амуниция Купить военное снаряжение'
+        }
+    ]
+  })
 </script>

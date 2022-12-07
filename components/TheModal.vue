@@ -6,7 +6,7 @@
     <div @click.stop class="flex flex-col justify-between w-[500px] bg-white z-20 rounded-[20px] p-[10px] duration-300">
       <div>
         <div class="w-full flex items-center justify-between">
-          <TheTitle content="Оформиление заказа" />
+          <TheTitle content="Оформление заказа" />
           <div
               @click="closeModal"
               class="hover:bg-light-gray rounded-full flex items-center justify-center duration-300 w-[20px] h-[20px] cursor-pointer"

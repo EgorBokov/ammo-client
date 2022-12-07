@@ -42,7 +42,7 @@
       <slot />
     </main>
     <footer class="text-center text-xs text-[rgba(0,0,0,0.5)]">
-      © 2022г. ООО "Доброе Дело".  All rights reserved.
+      © 2022г. ООО "Доброе Дело".  Все права защищены.
     </footer>
   </div>
 </template>

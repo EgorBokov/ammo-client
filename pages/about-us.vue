@@ -10,7 +10,8 @@
         <span class="block">ИНН 7536177940 КПП 753601001</span>
         <span class="block">ОГРН 11977536005369</span>
         <span class="block">Р/СЧ 40702810647000001302</span>
-        <span class="block">БИК 047601740 К/СЧ 30101810400000000740 в Читинский РФ АО «Россельхозбанк»</span>
+        <span class="block">БИК 047601740</span>
+      <span class="block">К/СЧ 30101810400000000740 в Читинский РФ АО «Россельхозбанк»</span>
       </p>
     </div>
   </TheContainer>

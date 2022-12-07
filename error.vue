@@ -20,7 +20,9 @@ const props = defineProps({
   error: Object
 })
 
-console.log(props)
+useHead({
+    title: 'Ошибка ;( | Купить амуницию РФ'
+})
 
 const handleError = () => clearError({ redirect: '/'})
 </script>
