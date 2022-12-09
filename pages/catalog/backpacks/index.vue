@@ -5,7 +5,7 @@
     </div>
     <div
         v-else
-        class="p-[20px] grid grid-cols-3 gap-[10px]"
+        class="p-[20px] grid grid-cols-1 md-mobile:grid-cols-2 md:grid-cols-3 gap-[10px]"
     >
       <TheProductItem
           v-for="item in data"

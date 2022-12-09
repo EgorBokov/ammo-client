@@ -2,19 +2,22 @@
   <TheContainer title="Моя корзина">
     <div v-if="basket.length">
       <div class="flex items-center justify-between">
-        <p v-if="commonValue < 100">Минимальное количество единиц товара для заказа: <span class="font-bold">100</span></p>
-        <div
-            v-else
+        <button
             class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer"
             @click="createOrder"
+            :disabled="commonValue < 100"
+            :class="(commonValue < 100) ? 'cursor-default': ''"
         >
           Оформить заказ
-        </div>
+        </button>
         <p class="text-right">Общее количество товара:
           <span class="font-bold">{{ commonValue }}</span> ед.
         </p>
       </div>
-
+      <p
+        v-if="commonValue < 100"
+        class="mt-2 italic"
+      >Минимальное количество единиц товара для заказа: <span class="font-bold">100</span></p>
       <div class="grid grid-cols-3 gap-x-2 gap-y-3 mt-[20px]">
         <div
             v-for="(item, idx) in basket"
