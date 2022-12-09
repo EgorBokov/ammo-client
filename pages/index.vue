@@ -9,9 +9,14 @@
         <div class="min-w-[180px] max-w-[180px] bg-[#fff] p-[10px] rounded-[20px]">
           <img src="/guarantee.svg" alt="Знак качества">
         </div>
-        <div class="flex flex-col rounded-[20px] p-[10px] bg-[#fff] w-full items-end">
-          <h2 class="font-bold text-xl">+7(995)685-96-60</h2>
-          <p>ammunition.rf@gmail.com</p>
+        <div class="flex rounded-[20px] items-start p-[10px] bg-[#fff] w-full justify-end">
+          <div class="flex items-center gap-[10px]">
+            <h2 class="font-bold text-xl">Контактные данные:</h2>
+            <div class="flex flex-col items-end">
+              <h2 class="font-bold text-xl">+7(995)685-96-60</h2>
+              <p>ammunition.rf@gmail.com</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="flex gap-3">

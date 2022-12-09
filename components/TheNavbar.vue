@@ -30,18 +30,19 @@
 <script setup lang="ts">
   //eslint-disable-next-line
   const cartAmount = useState('basket')
-  const currentRoute = computed(() => useRouter().currentRoute.value.fullPath)
+  const currentRoute = computed(() => useRouter().currentRoute.value.path)
 
   const checkCurrent = (path: string): string => {
-    if (currentRoute.value.includes(path)) {
+    if (currentRoute.value === path) {
       return 'bg-[rgba(0,0,0,0.3)]'
     }
     return ''
   }
 
-  const links = [
-    {id: 1, name: 'Каталог', href: '/catalog'},
-    {id: 2, name: 'Доставка и оплата', href: '/delivery-and-payment'},
-    {id: 3, name: 'О нас', href: '/about-us'},
+  const links: Array<{id: number, name: string, href: string}> = [
+    {id: 1, name: 'Главная страница', href: '/'},
+    {id: 2, name: 'Каталог', href: '/catalog'},
+    {id: 3, name: 'Доставка и оплата', href: '/delivery-and-payment'},
+    {id: 4, name: 'О нас', href: '/about-us'}
   ]
 </script>

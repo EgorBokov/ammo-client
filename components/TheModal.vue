@@ -120,6 +120,7 @@
         notification.value.isOpened = false
       }, 3000)
     }
+    basket.value = []
     showNotification()
   }
 </script>

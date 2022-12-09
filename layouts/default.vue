@@ -18,7 +18,7 @@
             class="rounded-[100px] flex w-[52px] h-[52px] cursor-pointer bg-bumblebee justify-center items-center relative duration-300 border-[2px]"
         >
           <img class="w-[24px] h-[23px]" src="/cart.svg" alt="картинка корзинки" />
-        </div>
+        </div>a
       </div>
     </div>
     <div
