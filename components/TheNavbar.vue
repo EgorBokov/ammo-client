@@ -28,6 +28,12 @@
 </template>
 
 <script setup lang="ts">
+  interface ILinks {
+    id: number
+    name: string
+    href: string
+  }
+
   //eslint-disable-next-line
   const cartAmount = useState('basket')
   const currentRoute = computed(() => useRouter().currentRoute.value.path)
@@ -39,7 +45,7 @@
     return ''
   }
 
-  const links: Array<{id: number, name: string, href: string}> = [
+  const links: Array<ILinks> = [
     {id: 1, name: 'Главная страница', href: '/'},
     {id: 2, name: 'Каталог', href: '/catalog'},
     {id: 3, name: 'Доставка и оплата', href: '/delivery-and-payment'},
