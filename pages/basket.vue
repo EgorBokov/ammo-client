@@ -53,6 +53,7 @@
 
 <script setup lang="ts">
   import {moneyConvert} from "~/utils/moneyConvert";
+
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
 
@@ -67,6 +68,10 @@
       })
     }
     return totalAmount
+  })
+
+  useHead({
+    title: `Коризна | Кол-во: ${commonValue.value < 100 ? commonValue.value : '99+' }`
   })
 
   const removeFromBasket = (id) => {

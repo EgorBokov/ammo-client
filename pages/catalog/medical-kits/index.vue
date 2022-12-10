@@ -30,6 +30,13 @@
 </template>
 
 <script setup lang="ts">
+  useHead({
+    title: 'Купить аптечки | Амуниция РФ',
+    meta: [
+      {name: 'description', content: 'Купить аптечки РФ где приобрести аптечки в россии купить набор медика купить автомобильная аптечка'}
+    ]
+  })
+
   const config = useRuntimeConfig()
   const router = useRouter()
   const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine`)

@@ -6,7 +6,7 @@
         alt="burgerbar-icon"
         @click="isSidebarOpened = true"
     >
-    <p class="hidden min-[620px]:block  font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
+    <p class="hidden min-[620px]:block font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
     <nav class="hidden min-[620px]:flex flex items-center gap-[10px]">
       <NuxtLink
           v-for="item in links"

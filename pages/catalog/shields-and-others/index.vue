@@ -1,7 +1,7 @@
 <template>
   <TheContainer title="Щиты и прочее">
     <div v-if="pending">
-      Loading...
+      Загрузка...
     </div>
     <div
         v-else
