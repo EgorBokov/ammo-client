@@ -1,6 +1,35 @@
 <template>
   <div class="relative flex h-full flex-col justify-between pb-[10px] h-[100%]">
     <div
+        class="fixed w-full h-full bg-[rgba(0,0,0,0.3)]"
+        @click="isSidebarOpened = false"
+        v-if="isSidebarOpened"
+    />
+    <div
+        class="fixed bg-white max-w-[320px] w-full h-full p-[10px] duration-300"
+        :class="isSidebarOpened ? 'translate-x-0' : 'translate-x-[-320px]'"
+        @click.stop
+    >
+      <div class="flex justify-end">
+        <div
+            class="w-[25px] h-[25px] hover:bg-light-gray rounded-full duration-300 flex justify-center items-center cursor-pointer"
+            @click="isSidebarOpened = false"
+        >
+          ✕
+        </div>
+      </div>
+      <nav class="mt-[10px]">
+        <NuxtLink
+            v-for="item in links"
+            :key="item.id"
+            :to="item.href"
+            class="block select-none p-[15px] text-xs lg:text-base text-black rounded-[100px] decoration-0 duration-300 hover:tracking-[0.4px] hover:bg-[rgba(255,215,44,1)]"
+        >
+          {{ item.name }}
+        </NuxtLink>
+      </nav>
+    </div>
+    <div
         v-if="modalWindow.isOpened && modalWindow.name === 'formModal'"
         class="fixed top-0 left-0 w-full h-full z-20">
       <TheModal />
@@ -38,7 +67,7 @@
     <header>
       <TheNavbar />
     </header>
-    <main class="h-full">
+    <main class="h-full min-h-[100%]">
       <slot />
     </main>
     <footer class="text-center text-xs text-[rgba(0,0,0,0.5)]">
@@ -47,6 +76,12 @@
   </div>
 </template>
 <script setup lang="ts">
+  interface ILinks {
+    id: number
+    name: string
+    href: string
+  }
+
   const cartAmount = useState('basket')
   const isItemAdded = useState('isItemAdded', () => ({
     color: 'success',
@@ -58,4 +93,13 @@
     name: '',
     isOpened: true
   }))
+
+  const isSidebarOpened = useState('isSidebarOpened', () => false)
+
+  const links: Array<ILinks> = [
+    {id: 1, name: 'Главная страница', href: '/'},
+    {id: 2, name: 'Каталог', href: '/catalog'},
+    {id: 3, name: 'Доставка и оплата', href: '/delivery-and-payment'},
+    {id: 4, name: 'О нас', href: '/about-us'}
+  ]
 </script>

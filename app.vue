@@ -15,5 +15,6 @@
 }
 body {
   @apply bg-light-gray;
+  min-height: 100%;
 }
 </style>

@@ -1,8 +1,11 @@
 <template>
   <div class="bg-[#fff] h-[80px] px-[20px] py-[1rem] flex items-center justify-between">
-    <NavLink to="/" class="cursor-pointer">
-      <img class="block min-[620px]:hidden w-[30px] h-[20px]" src="/burgerbar.svg" alt="burgerbar-icon">
-    </NavLink>
+    <img
+        class="block min-[620px]:hidden w-[30px] h-[20px] cursor-pointer"
+        src="/burgerbar.svg"
+        alt="burgerbar-icon"
+        @click="isSidebarOpened = true"
+    >
     <p class="hidden min-[620px]:block  font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
     <nav class="hidden min-[620px]:flex flex items-center gap-[10px]">
       <NuxtLink
@@ -39,6 +42,7 @@
 
   //eslint-disable-next-line
   const cartAmount = useState('basket')
+  const isSidebarOpened = useState('isSidebarOpened')
   const currentRoute = computed(() => useRouter().currentRoute.value.path)
 
   const checkCurrent = (path: string): string => {
