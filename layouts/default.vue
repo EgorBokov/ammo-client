@@ -23,6 +23,7 @@
             v-for="item in links"
             :key="item.id"
             :to="item.href"
+            @click="isSidebarOpened = false"
             class="block select-none p-[15px] text-xs lg:text-base text-black rounded-[100px] decoration-0 duration-300 hover:tracking-[0.4px] hover:bg-[rgba(255,215,44,1)]"
         >
           {{ item.name }}
@@ -43,7 +44,7 @@
           {{ cartAmount?.length > 99 ? '99+' : cartAmount?.length }}
         </div>
         <div
-            @click="$router.push('/basket')"
+            @click="$router.push('/basket'); isSidebarOpened = false"
             class="rounded-[100px] flex w-[52px] h-[52px] cursor-pointer bg-bumblebee justify-center items-center relative duration-300 border-[2px]"
         >
           <img class="w-[24px] h-[23px]" src="/cart.svg" alt="картинка корзинки" />
