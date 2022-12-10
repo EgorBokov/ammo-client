@@ -1,6 +1,6 @@
 <template>
   <TheContainer title="Аптечки">
-    <div class="p-[20px] grid grid-cols-3 gap-[10px]">
+    <div class="p-[20px] grid grid-cols-1 min-[600px]:grid-cols-2 md:grid-cols-3 gap-[10px]">
       <div
           v-for="item in data"
           :key="item.id" class="flex flex-col justify-between p-[10px] border-[rgba(0,0,0,.3)] border-[3px] cursor-pointer rounded-[6px] duration-300 hover:border-bumblebee"

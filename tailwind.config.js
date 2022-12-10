@@ -10,9 +10,6 @@ module.exports = {
     "./error.vue"
   ],
   theme: {
-    screens: {
-      'md-mobile': '500px'
-    },
     colors: {
       'light-gray': 'rgba(112, 128, 144, 0.3)',
       'bumblebee': 'rgb(255,215,44)',

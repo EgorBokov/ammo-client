@@ -1,7 +1,10 @@
 <template>
-  <div class="bg-[#fff] h-[80px] px-[20px] py-[1rem] flex items-center justify-between shadow-[]">
-    <p class="font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
-    <nav class="flex items-center gap-[10px]">
+  <div class="bg-[#fff] h-[80px] px-[20px] py-[1rem] flex items-center justify-between">
+    <NavLink to="/" class="cursor-pointer">
+      <img class="block min-[620px]:hidden w-[30px] h-[20px]" src="/burgerbar.svg" alt="burgerbar-icon">
+    </NavLink>
+    <p class="hidden min-[620px]:block  font-bold cursor-pointer" @click="$router.push('/')">Амуниция РФ</p>
+    <nav class="hidden min-[620px]:flex flex items-center gap-[10px]">
       <NuxtLink
           v-for="item in links"
           :key="item.id"
