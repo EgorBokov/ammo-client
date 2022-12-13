@@ -40,6 +40,7 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
+  import popularPositions from '~/utils/popularProducts';
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
   const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
@@ -53,24 +54,4 @@
         }
     ]
   })
-
-  interface IPopularPosition {
-    id: number;
-    name: string;
-    price: string;
-    link: string;
-    image: string;
-    productId: number;
-    route?: string;
-  }
-
-  const popularPositions: Array<IPopularPosition> = [
-    { id: 1, name: "Разгрузочный жилет", price: '3000', link: '/catalog/armors/8', image: '/uploadguard.png', productId: 8, route: 'armors'},
-    { id: 2, name: "Аптечка", price: '5200', link: '/catalog/medical-kits/1', image: '/medical-kit.png', productId: 1, route: 'medical-kits'},
-    { id: 3, name: "Пуленепробиваемый шлем М88", price: '8200', link: '/catalog/armors/1', image: '/helmet1.png', productId: 1, route: 'armors'},
-    { id: 4, name: "Тактические перчатки", price: '700', link: '/catalog/clothes/17', image: '/gloves.png', productId: 17, route: 'clothes'},
-    { id: 5, name: "Экран", price: '2000', link: '/catalog/shields-and-others/2', image: '/shield2.png', productId: 2, route: 'shields-and-others'},
-    { id: 6, name: "Рюкзак", price: '2500-4000', link: '/catalog/backpacks/2', image: '/backpack2.png', productId: 2, route: 'backpacks'},
-    { id: 7, name: "Пуленепробиваемая вставная пластина", price: '10440', link: '/catalog/armors/4', image: '/plastine1.png', productId: 4, route: 'armors'},
-  ]
 </script>
