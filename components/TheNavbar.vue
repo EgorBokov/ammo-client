@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#fff] h-[80px] px-[20px] py-[1rem] flex items-center justify-between">
+  <div class="bg-[#fff] h-[60px] min-[620px]:h-[80px] px-[20px] py-[1rem] flex items-center justify-between">
     <img
         class="block min-[620px]:hidden w-[30px] h-[20px] cursor-pointer"
         src="/burgerbar.svg"
