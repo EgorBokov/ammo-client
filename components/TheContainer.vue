@@ -13,6 +13,11 @@
 </template>
 
 <script setup lang="ts">
+  const config = useRuntimeConfig()
+  const BACKEND_URL = config.public.backendURL
+
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
+
   const props = defineProps({
     title: {
       type: String,
@@ -21,6 +26,6 @@
     isTransparentContent: {
       type: Boolean,
       default: false
-    }
+    },
   })
 </script>

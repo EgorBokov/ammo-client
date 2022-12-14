@@ -5,7 +5,7 @@
     </div>
     <div v-else class="p-[20px]">
       <div class="flex flex-col">
-        <div class="flex items-start gap-[10px]">
+        <div class="flex flex-col min-[565px]:flex-row items-start gap-[10px]">
           <div class="max-w-[320px] max-h-[320px]">
             <img :src="`${config.public.backendURL}/${data.image}`" alt="Фотография товара">
           </div>
@@ -14,7 +14,7 @@
               <p class="text-xl">{{ data.name }}</p>
               <p class="font-bold"> {{ prices[currentPrice] }}₽</p>
             </div>
-            <div class="mt-[20px] flex items-center gap-[10px]" v-if="data?.sizes">
+            <div class="mt-[20px] flex flex-wrap items-center gap-[10px]" v-if="data?.sizes">
               <div
                   v-for="(item, idx) in data.sizes"
                   :key="idx"
@@ -27,7 +27,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col gap-[10px] max-w-[200px] self-end" style="align-items: end">
+        <div class="flex flex-col gap-[10px] max-w-[200px] pt-[20px] self-end" style="align-items: end">
           <div
               style="max-width: 200px"
               class="border-[2px] cursor-pointer text-center border-[#000] p-[10px] hover:bg-[rgba(0,0,0,.2)] rounded-[6px] hover:bg-[#fff] duration-300"

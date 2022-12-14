@@ -3,7 +3,7 @@
     <div v-if="pending"></div>
     <div v-else class="p-[20px]">
       <div>
-        <div class="flex items-start gap-[10px]">
+        <div class="flex flex-col min-[565px]:flex-row items-start gap-[10px]">
           <div class="max-w-[320px] max-h-[320px]">
             <img :src="`${config.public.backendURL}/${data.image}`" alt="Фотография товара">
           </div>
