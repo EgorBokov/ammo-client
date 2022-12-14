@@ -6,7 +6,7 @@
         v-if="isSidebarOpened"
     />
     <div
-        class="fixed bg-white max-w-[320px] w-full h-full p-[10px] duration-300"
+        class="fixed bg-white max-w-[320px] w-full h-full p-[10px] duration-300 z-10"
         :class="isSidebarOpened ? 'translate-x-0' : 'translate-x-[-320px]'"
         @click.stop
     >
@@ -47,7 +47,7 @@
             @click="$router.push('/basket'); isSidebarOpened = false"
             class="rounded-[100px] flex w-[52px] h-[52px] cursor-pointer bg-bumblebee justify-center items-center relative duration-300 border-[2px]"
         >
-          <img class="w-[24px] h-[23px]" src="/cart.svg" alt="картинка корзинки" />
+          <img class="w-[24px] h-[23px]" src="/cart.svg" alt="Изображение корзинки" />
         </div>
       </div>
     </div>

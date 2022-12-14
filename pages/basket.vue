@@ -1,6 +1,7 @@
 <template>
   <TheContainer title="Моя корзина">
     <div v-if="basket.length">
+      <p v-if="totalPrice < MINIMAL_PRICE" class="italic mb-[10px]">Минимальный лимит для оформления заказа : 200.000₽</p>
       <div class="flex items-center justify-between">
         <button
             class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer"
@@ -18,7 +19,7 @@
         v-if="commonValue < 100"
         class="mt-2 italic"
       >Минимальное количество единиц товара для заказа: <span class="font-bold">100</span></p>
-      <div class="grid grid-cols-3 gap-x-2 gap-y-3 mt-[20px]">
+      <div class="mt-[10px] grid grid-cols-1 min-[600px]:grid-cols-2 md:grid-cols-3 gap-[10px]">
         <div
             v-for="(item, idx) in basket"
             class="relative cursor-pointer rounded-[10px] border-2 border-light-gray p-[5px]"
@@ -59,6 +60,20 @@
 
   const basket = useState('basket')
   const modal = useState('modalWindow')
+
+  const totalPrice = computed(() => {
+    let _totalPrice = 0;
+
+    if (basket.value.length) {
+      basket.value.forEach(item => {
+        _totalPrice += Number(item.price)
+      })
+    }
+
+    return _totalPrice
+  })
+
+  const MINIMAL_PRICE = 200000
 
   const commonValue = computed(() => {
     let totalAmount = 0
