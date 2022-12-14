@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex h-full flex-col justify-between pb-[10px] h-[100%]">
+  <div class="relative flex h-full flex-col justify-between h-[100%]">
     <div
         class="fixed w-full h-full bg-[rgba(0,0,0,0.3)]"
         @click="isSidebarOpened = false"
@@ -72,7 +72,9 @@
       <slot />
     </main>
     <footer class="text-center text-xs text-[rgba(0,0,0,0.5)]">
-      © 2022г. ООО "Доброе Дело".  Все права защищены.
+      <div class="bg-light-gray p-[20px] min-h-[70px]">
+        © 2022г. ООО "Доброе Дело".  Все права защищены.
+      </div>
     </footer>
   </div>
 </template>
