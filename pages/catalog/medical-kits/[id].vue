@@ -54,24 +54,17 @@
 </template>
 
 <script setup lang="ts">
+  import { BasketItem, INotificationBar } from "~/utils/interfaces";
+
   const config = useRuntimeConfig()
   const route = useRoute()
   const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine/${route.params.id}`)
   const amountValue = ref(1)
-  const basket = useState('basket')
-  const isItemAdded = useState('isItemAdded')
-
-  interface IProduct {
-    name: string
-    articul: number | string
-    price: number| string
-    image: string
-    amount: number | string
-    link: string
-  }
+  const basket = useState<BasketItem[]>('basket')
+  const isItemAdded = useState<INotificationBar>('isItemAdded')
 
   const addToCart = () => {
-    const product: IProduct = {
+    const product: BasketItem = {
       name: data.value.name,
       price: data.value.price,
       articul: data.value.articul,

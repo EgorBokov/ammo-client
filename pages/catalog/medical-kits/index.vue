@@ -30,6 +30,8 @@
 </template>
 
 <script setup lang="ts">
+  import { BasketItem } from "~/utils/interfaces";
+
   useHead({
     title: 'Купить аптечки | Амуниция РФ',
     meta: [
@@ -41,7 +43,7 @@
   const router = useRouter()
   const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine`)
 
-  const basket = useState('basket')
+  const basket = useState<BasketItem[]>('basket')
 
   const navigate = (id: number): void => {
     router.push(`/catalog/medical-kits/${id}`)

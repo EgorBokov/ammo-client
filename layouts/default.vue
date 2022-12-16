@@ -65,39 +65,37 @@
         &#10006;
       </div>
     </div>
-    <header>
-      <TheNavbar />
-    </header>
-    <main class="h-full min-h-[100%]">
-      <slot />
-    </main>
-    <footer class="text-center text-xs text-[rgba(0,0,0,0.5)]">
-      <div class="bg-light-gray p-[20px] min-h-[70px]">
-        © 2022г. ООО "Доброе Дело".  Все права защищены.
-      </div>
-    </footer>
+    <div>
+      <header>
+        <TheNavbar />
+      </header>
+      <main class="h-full min-h-[100%]">
+        <slot />
+      </main>
+      <footer class="text-center text-xs text-[rgba(0,0,0,0.5)]">
+        <div class="p-[20px] min-h-[70px]">
+          © 2022г. ООО "Доброе Дело".  Все права защищены.
+        </div>
+      </footer>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
-  interface ILinks {
-    id: number
-    name: string
-    href: string
-  }
+import {IModalWindow, ILinks, BasketItem, INotificationBar} from "~/utils/interfaces";
 
-  const cartAmount = useState('basket')
-  const isItemAdded = useState('isItemAdded', () => ({
+  const cartAmount = useState<BasketItem[]>('basket')
+  const isItemAdded = useState<INotificationBar>('isItemAdded', () => ({
     color: 'success',
     title: 'Товар успешно добавлен в корзину',
     isOpened: false
   }))
 
-  const modalWindow = useState('modalWindow', () => ({
+  const modalWindow = useState<IModalWindow>('modalWindow', () => ({
     name: '',
     isOpened: true
   }))
 
-  const isSidebarOpened = useState('isSidebarOpened', () => false)
+  const isSidebarOpened = useState<boolean>('isSidebarOpened', () => false)
 
   const links: Array<ILinks> = [
     {id: 1, name: 'Главная страница', href: '/'},

@@ -54,26 +54,25 @@
 
 <script setup lang="ts">
   import {moneyConvert} from "~/utils/moneyConvert";
+  import { BasketItem, IModalWindow } from "~/utils/interfaces";
 
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
 
-  const basket = useState('basket')
-  const modal = useState('modalWindow')
+  const basket = useState<BasketItem[]>('basket')
+  const modal = useState<IModalWindow>('modalWindow')
 
   const totalPrice = computed(() => {
     let _totalPrice = 0;
 
     if (basket.value.length) {
-      basket.value.forEach(item => {
-        _totalPrice += Number(item.price)
-      })
+      basket?.value?.forEach(item => _totalPrice += item.price * item.amount)
     }
 
     return _totalPrice
   })
 
-  const MINIMAL_PRICE = 200000
+  const MINIMAL_PRICE: number = 200000 as const
 
   const commonValue = computed(() => {
     let totalAmount = 0
@@ -89,7 +88,7 @@
     title: `Коризна | Кол-во: ${commonValue.value < 100 ? commonValue.value : '99+' }`
   })
 
-  const removeFromBasket = (id) => {
+  const removeFromBasket = (id: number) => {
     basket.value = [...basket.value.filter((item, idx) => idx !== id)]
   }
 

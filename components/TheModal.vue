@@ -81,8 +81,10 @@
   </div>
 </template>
 <script setup lang="ts">
+  import {IModalWindow} from "~/utils/interfaces";
+
   const config = useRuntimeConfig()
-  const modal = useState('modalWindow')
+  const modal = useState<IModalWindow>('modalWindow')
   const notification = useState('isItemAdded')
 
   const name = ref<string>('')
