@@ -28,7 +28,7 @@
               @click="$router.push('catalog' + link.link)"
           >
             <div class="flex items-center gap-[5px]">
-              <img class="w-[20px] h-[20px]" :src="`${BACKEND_URL}${link.image}`" alt="Logo">
+              <img class="w-[20px] h-[20px]" :src="`${BACKEND_URL}/${link.image}`" alt="Logo">
               <span class="block">{{ link.name }}</span>
             </div>
           </NuxtLink>
@@ -70,7 +70,7 @@
               :price="`${item.price}`"
               :route="item.route"
           >
-            <img class="max-h-[200px]" :src="`${BACKEND_URL}${item.image}`" alt="Изображение товара">
+            <img class="max-h-[200px]" :src="`${BACKEND_URL}/${item.image}`" alt="Изображение товара">
           </TheProductItem>
         </div>
       </div>

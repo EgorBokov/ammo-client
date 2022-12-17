@@ -7,7 +7,7 @@
       <div class="flex flex-col">
         <div class="flex flex-col min-[565px]:flex-row items-start gap-[10px]">
           <div class="max-w-[320px] max-h-[320px]">
-            <img :src="`${config.public.backendURL}${data.image}`" alt="Фотография товара">
+            <img :src="`${config.public.backendURL}/${data.image}`" alt="Фотография товара">
           </div>
           <div class="flex flex-col gap-[10px]">
             <div>
@@ -47,28 +47,20 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
-interface IProduct {
-  name: string
-  articul: number | string
-  size: string
-  price: number| string
-  image: string
-  amount: number | string
-  link: string
-}
+import { BasketItem, INotificationBar } from "~/utils/interfaces";
 
 const config = useRuntimeConfig()
 const route = useRoute()
-const basket = useState('basket')
-const isItemAdded = useState('isItemAdded')
+const basket = useState<BasketItem[]>('basket')
+const isItemAdded = useState<INotificationBar>('isItemAdded')
 const { pending, data } = useLazyFetch(`${config.public.backendURL}api/backpacks/${useRoute().params.id}`)
 const amountValue = ref(1)
-const chosenSize = ref(data.value?.sizes[0])
+const chosenSize = ref<string>(data.value?.sizes[0])
 const prices = [2500, 3000, 3500, 4000, 4000]
 const currentPrice = ref(0)
 
 const addToCart = (): void => {
-  const product: IProduct = {
+  const product: BasketItem = {
     name: data.value.name,
     articul: data.value.articul,
     size: chosenSize.value,
@@ -77,13 +69,6 @@ const addToCart = (): void => {
     image: data.value.image,
     link: route.fullPath
   }
-
-
-  // const isItemAdded = useState('isItemAdded', () => ({
-  //   color: 'success',
-  //   title: 'Товар успешно добавлен в корзину',
-  //   isOpened: false
-  // }))
 
   if (chosenSize.value) {
     basket.value.push(product)

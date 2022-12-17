@@ -8,7 +8,7 @@
           :id="data?.id"
           :description="data?.description"
       >
-        <img :src="`${config.public.backendURL}${data?.image}`" class="max-h-[300px]" alt="Фотография товара">
+        <img :src="`${config.public.backendURL}/${data?.image}`" class="max-h-[300px]" alt="Фотография товара">
         <template v-slot:description>
           <div v-if="data?.extra_info" class="mt-[10px]">
             <p class="font-md font-bold">{{ data.extra_info[0] }}</p>

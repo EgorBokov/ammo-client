@@ -12,7 +12,7 @@
           :extraInfo="data?.extra_info"
       >
         <template v-if="data.images.length > 1">
-          <img v-for="img in data.images" :src="`${config.public.backendURL}/${img}`" :key="img" alt="Фотография товара">
+          <img v-for="img in data.images" :src="`${config.public.backendURL}/${img}`" class="max-h-[360px]" :key="img" alt="Фотография товара">
         </template>
         <template v-else>
           <img :src="`${config.public.backendURL}/${data.images[0]}`" alt="Фотография товара">
@@ -50,12 +50,13 @@
 </template>
 
 <script setup lang="ts">
+  import { BasketItem, INotificationBar } from "~/utils/interfaces";
   const config = useRuntimeConfig()
   const { pending, data } = useLazyFetch(`${config.public.backendURL}api/shields/${useRoute().params.id}`)
   const route = useRoute()
-  const basket = useState('basket')
-  const isItemAdded = useState('isItemAdded')
-  const amountValue = ref(1)
+  const basket = useState<BasketItem[]>('basket')
+  const isItemAdded = useState<INotificationBar>('isItemAdded')
+  const amountValue = ref<number>(1)
 
   interface IProduct {
     name: string
@@ -67,7 +68,7 @@
   }
 
   const addToCart = (): void => {
-    const product: IProduct = {
+    const product: BasketItem = {
       name: data.value.name,
       articul: data.value.articul,
       price: data.value.price,
