@@ -1,6 +1,8 @@
 <template>
   <TheContainer title="Аптечки">
-    <div v-if="pending"></div>
+    <div v-if="pending" class="flex justify-center items-center h-[100%]">
+      <img src="/spinner.svg" class="animate-spin">
+    </div>
     <div v-else class="p-[20px]">
       <div>
         <div class="flex flex-col min-[565px]:flex-row items-start gap-[10px]">

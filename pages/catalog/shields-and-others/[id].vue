@@ -1,7 +1,8 @@
 <template>
   <TheContainer title="Щиты и прочее">
-    <div v-if="pending">Loading...</div>
-
+    <div v-if="pending" class="flex justify-center items-center h-[100%]">
+      <img src="/spinner.svg" class="animate-spin">
+    </div>
     <div v-else>
       <TheProductInside
           :name="data.name"
@@ -57,15 +58,6 @@
   const basket = useState<BasketItem[]>('basket')
   const isItemAdded = useState<INotificationBar>('isItemAdded')
   const amountValue = ref<number>(1)
-
-  interface IProduct {
-    name: string
-    articul: number | string
-    price: number| string
-    image: string
-    amount: number | string
-    link: string
-  }
 
   const addToCart = (): void => {
     const product: BasketItem = {

@@ -3,7 +3,9 @@
       title="Главная страница"
       isTransparentContent
   >
-    <div v-if="pending">Loading...</div>
+    <div v-if="pending" class="flex justify-center items-center h-[100%]">
+      <img src="/spinner.svg" class="animate-spin">
+    </div>
     <div v-else class="p-[2px] min-[620px]:p-[10px] flex flex-col gap-3">
       <div class="flex flex-col min-[665px]:flex-row gap-3">
         <div class="min-w-[180px] hidden min-[665px]:block max-w-[180px] bg-[#fff] p-[10px] rounded-[20px]">

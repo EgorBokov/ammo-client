@@ -1,8 +1,8 @@
 <template>
   <TheContainer title="Каталог">
-    <p v-if="pending">
-      Загрузка...
-    </p>
+    <div v-if="pending" class="flex justify-center items-center h-[100%]">
+      <img src="/spinner.svg" class="animate-spin">
+    </div>
     <div v-else>
       <div>
         <div

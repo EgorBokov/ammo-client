@@ -1,7 +1,7 @@
 <template>
   <TheContainer title="Щиты и прочее">
-    <div v-if="pending">
-      Загрузка...
+    <div v-if="pending" class="flex justify-center items-center h-[100%]">
+      <img src="/spinner.svg" class="animate-spin">
     </div>
     <div
         v-else
