@@ -89,5 +89,5 @@ useHead({
   ]
 })
 
-const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
+const { pending, data } = useLazyFetch(`${BACKEND_URL}api/categories`)
 </script>

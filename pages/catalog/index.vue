@@ -45,7 +45,7 @@
   import popularPositions from '~/utils/popularProducts';
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
-  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}api/categories`)
 
   useHead({
     title: 'Каталог товаров | Купить амуницию РФ',

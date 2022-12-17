@@ -70,7 +70,7 @@
   const route = useRoute()
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
-  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/guards/` + route.params.id)
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}api/guards/` + route.params.id)
   const basket = useState('basket')
   const isItemAdded = useState('isItemAdded')
 

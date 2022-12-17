@@ -7,7 +7,7 @@
       <div class="flex flex-col">
         <div class="flex flex-col min-[565px]:flex-row items-start gap-[10px]">
           <div class="max-w-[320px] max-h-[320px]">
-            <img :src="`${config.public.backendURL}/${data.image}`" alt="Фотография товара">
+            <img :src="`${config.public.backendURL}${data.image}`" alt="Фотография товара">
           </div>
           <div class="flex flex-col gap-[10px]">
             <div>
@@ -61,7 +61,7 @@ const config = useRuntimeConfig()
 const route = useRoute()
 const basket = useState('basket')
 const isItemAdded = useState('isItemAdded')
-const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/backpacks/${useRoute().params.id}`)
+const { pending, data } = useLazyFetch(`${config.public.backendURL}api/backpacks/${useRoute().params.id}`)
 const amountValue = ref(1)
 const chosenSize = ref(data.value?.sizes[0])
 const prices = [2500, 3000, 3500, 4000, 4000]

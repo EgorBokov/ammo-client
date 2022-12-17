@@ -6,19 +6,15 @@
         <button
             class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer"
             @click="createOrder"
-            :disabled="commonValue < 100"
-            :class="(commonValue < 100) ? 'cursor-default': ''"
+            :disabled="totalPrice < MINIMAL_PRICE"
+            :class="(totalPrice < MINIMAL_PRICE) ? 'cursor-default': ''"
         >
           Оформить заказ
         </button>
-        <p class="text-right">Общее количество товара:
-          <span class="font-bold">{{ commonValue }}</span> ед.
+        <p class="text-right">Общая сумма заказа:
+          <span class="font-bold">{{ totalPrice }}</span> ₽
         </p>
       </div>
-      <p
-        v-if="commonValue < 100"
-        class="mt-2 italic"
-      >Минимальное количество единиц товара для заказа: <span class="font-bold">100</span></p>
       <div class="mt-[10px] grid grid-cols-1 min-[600px]:grid-cols-2 md:grid-cols-3 gap-[10px]">
         <div
             v-for="(item, idx) in basket"
