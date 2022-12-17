@@ -101,7 +101,7 @@
   const createPurchase = async () => {
     const basket = useState('basket')
 
-    const response = await $fetch(`${config.public.backendURL}api/create-order`, {
+    const response = await $fetch(`${config.public.backendURL}/api/create-order`, {
       method: 'POST',
       body: {
         name: name.value,

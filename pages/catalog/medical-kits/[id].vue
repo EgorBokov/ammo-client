@@ -58,7 +58,7 @@
 
   const config = useRuntimeConfig()
   const route = useRoute()
-  const { pending, data } = useLazyFetch(`${config.public.backendURL}api/medicine/${route.params.id}`)
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine/${route.params.id}`)
   const amountValue = ref(1)
   const basket = useState<BasketItem[]>('basket')
   const isItemAdded = useState<INotificationBar>('isItemAdded')

@@ -52,7 +52,7 @@
 <script setup lang="ts">
   import { BasketItem, INotificationBar } from "~/utils/interfaces";
   const config = useRuntimeConfig()
-  const { pending, data } = useLazyFetch(`${config.public.backendURL}api/shields/${useRoute().params.id}`)
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/shields/${useRoute().params.id}`)
   const route = useRoute()
   const basket = useState<BasketItem[]>('basket')
   const isItemAdded = useState<INotificationBar>('isItemAdded')

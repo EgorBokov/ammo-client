@@ -16,7 +16,7 @@
   const config = useRuntimeConfig()
   const BACKEND_URL = config.public.backendURL
 
-  const { pending, data } = useLazyFetch(`${BACKEND_URL}api/categories`)
+  const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
 
   const props = defineProps({
     title: {

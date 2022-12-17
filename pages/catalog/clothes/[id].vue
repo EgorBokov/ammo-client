@@ -52,7 +52,7 @@
 <script setup lang="ts">
 const config = useRuntimeConfig()
 const route = useRoute()
-const { pending, data } = useLazyFetch(`${config.public.backendURL}api/clothes/${route.params.id}`)
+const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/clothes/${route.params.id}`)
 const basket = useState('basket')
 const isItemAdded = useState('isItemAdded')
 const amountValue = ref(1)

@@ -41,7 +41,7 @@
 
   const config = useRuntimeConfig()
   const router = useRouter()
-  const { pending, data } = useLazyFetch(`${config.public.backendURL}api/medicine`)
+  const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/medicine`)
 
   const basket = useState<BasketItem[]>('basket')
 

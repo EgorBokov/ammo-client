@@ -22,5 +22,5 @@
 </template>
 <script setup lang="ts">
 const config = useRuntimeConfig()
-const { pending, data } = useLazyFetch(`${config.public.backendURL}api/backpacks`)
+const { pending, data } = useLazyFetch(`${config.public.backendURL}/api/backpacks`)
 </script>
