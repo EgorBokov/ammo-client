@@ -12,11 +12,18 @@
           <img src="/guarantee.svg" alt="Знак качества">
         </div>
         <div class="flex rounded-[20px] items-start p-[10px] bg-[#fff] w-full justify-end">
-          <div class="flex items-start gap-[10px]">
-            <h2 class="font-bold text-xs min-[620px]:text-xl">Контактные данные:</h2>
-            <div class="flex flex-col items-end">
-              <h2 class="font-bold self-start text-xs min-[620px]:text-xl">+7(995)685-96-60</h2>
-              <p class="text-xs min-[620px]:text-xl">ammunition.rf@gmail.com</p>
+          <div class="flex flex-col">
+            <div class="flex items-start gap-[10px]">
+              <h2 class="font-bold text-xs min-[620px]:text-xl">Контактные данные:</h2>
+              <div class="flex flex-col items-end">
+                <h2 class="font-bold self-start text-xs min-[620px]:text-xl">+7(995)685-96-60</h2>
+                <p class="text-xs min-[620px]:text-xl">ammunition.rf@gmail.com</p>
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="block font-bold">Всегда актуальные цены</span>
+              <span class="block font-bold">Прямая поставка с завода</span>
+              <span class="block font-bold">Все товары в наличии, не нужно ждать пока изготовят.</span>
             </div>
           </div>
         </div>
@@ -54,6 +61,28 @@
                 </p>
               </section>
             </header>
+          </article>
+          <article class="my-2">
+            <section>
+              <p class="font-bold mt-[5px]">Оптовые продажи осуществляются от определённой суммы (200.000₽)</p>
+            </section>
+          </article>
+          <article>
+            <header class="font-bold">
+              На крупные партии действует скикдка <span class="font-bold">10%</span>
+            </header>
+          </article>
+          <article class="mb-3">
+            <p>Цены указаны без НДС.</p>
+            Если вам нужна цена с НДС, то она выставляется вместе со счетом
+          </article>
+          <article>
+            <header>
+              <p class="font-bold">Индивидуальный подход к каждому клиенту</p>
+            </header>
+            <section class="text-sm">
+              <p>Если вы не нашли в нашем каталоге нужного вам товара или расцветки, мы можем изготовить или найти его</p>
+            </section>
           </article>
         </div>
       </div>
