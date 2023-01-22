@@ -25,3 +25,8 @@ export type ILinks = {
     name: string
     href: string
 }
+
+export interface ICommonModal {
+    title: string,
+    isOpened: boolean
+}

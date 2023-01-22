@@ -43,7 +43,16 @@
           </NuxtLink>
         </div>
         <div class="rounded-[20px] p-[10px] bg-[#fff] w-full">
-          <h1 class="text-xl font-bold">Почему именно мы? </h1>
+          <div class="flex min-[470px]:flex-row flex-col justify-between min-[470px]:items-center">
+            <h1 class="text-xl font-bold">Почему именно мы?</h1>
+            <div
+                @click="openModal"
+                class="min-[620px]:flex items-center hidden gap-2 text-white border-[2px] border-deep-green bg-deep-green duration-300 rounded-[20px] p-[6px] cursor-pointer hover:bg-white hover:text-[#000]"
+            >
+              <img src="/phone.svg" alt="Phone icon" width="20" height="20" />
+              <span class="block">Связаться с нами</span>
+            </div>
+          </div>
           <article class="pt-[10px]">
             <header>
               <h2 class="font-bold">Гарантия качества</h2>
@@ -109,6 +118,7 @@
   </TheContainer>
 </template>
 <script setup lang="ts">
+import { ICommonModal } from "~/utils/interfaces";
 import popularPositions from "~/utils/popularProducts";
 const config = useRuntimeConfig()
 const BACKEND_URL = config.public.backendURL
@@ -119,6 +129,11 @@ useHead({
     { name: "description", content: "Амуниция РФ Рюкзаки оптом Термобелье оптом Аптечки отптом Бронижелеты оптом Щиты оптом Купить рюкзаки оптом"}
   ]
 })
+
+const openModal = () => {
+  const commonModal = useState<ICommonModal>('commonModal')
+  commonModal.value.isOpened = true
+}
 
 const { pending, data } = useLazyFetch(`${BACKEND_URL}/api/categories`)
 </script>

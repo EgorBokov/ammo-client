@@ -16,7 +16,8 @@ module.exports = {
       'success': 'rgb(64, 171, 89)',
       'error': 'rgb(232, 53, 0)',
       'white': '#FFFFFF',
-      'modal-shadow': 'rgba(0, 0, 0, 0.4)'
+      'modal-shadow': 'rgba(0, 0, 0, 0.4)',
+      'deep-green': 'rgba(60, 176, 67)'
     },
     extend: {
       boxShadow: {

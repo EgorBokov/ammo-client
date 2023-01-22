@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-  const basket = useState('basket', () => [])
+const basket = useState('basket', () => [])
 </script>
 
 <style lang="scss">

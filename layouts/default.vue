@@ -31,11 +31,28 @@
       </nav>
     </div>
     <div
+      v-if="commonModal.isOpened"
+      class="fixed top-0 left-0 w-full h-full z-20">
+    >
+      <TheCommonModal />
+    </div>
+    <div
         v-if="modalWindow.isOpened && modalWindow.name === 'formModal'"
-        class="fixed top-0 left-0 w-full h-full z-20">
+        class="fixed top-0 left-0 w-full h-full z-20"
+    >
       <TheModal />
     </div>
-    <div class="fixed bottom-[20px] right-[20px] md:hidden">
+    <div class="fixed bottom-[80px] right-[20px] min-[620px]:hidden">
+      <div class="relative">
+        <div
+            @click="commonModal.isOpened = true"
+            class="rounded-[100px] flex w-[52px] h-[52px] cursor-pointer bg-deep-green justify-center items-center relative duration-300 border-[2px]"
+        >
+          <img class="w-[24px] h-[23px]" src="/phone.svg" alt="Изображение телефона" />
+        </div>
+      </div>
+    </div>
+    <div class="fixed bottom-[20px] right-[20px] min-[620px]:hidden">
       <div class="relative">
         <div
             v-if="cartAmount?.length"
@@ -81,9 +98,16 @@
   </div>
 </template>
 <script setup lang="ts">
-import {IModalWindow, ILinks, BasketItem, INotificationBar} from "~/utils/interfaces";
+import {IModalWindow, ILinks, BasketItem, INotificationBar, ICommonModal} from "~/utils/interfaces";
+import TheCommonModal from "~/components/modal/TheCommonModal.vue";
 
   const cartAmount = useState<BasketItem[]>('basket')
+
+  const commonModal = useState<ICommonModal>('commonModal', () => ({
+    title: 'Default',
+    isOpened: false
+  }))
+
   const isItemAdded = useState<INotificationBar>('isItemAdded', () => ({
     color: 'success',
     title: 'Товар успешно добавлен в корзину',
