@@ -109,6 +109,7 @@
               :name="item.name"
               :price="`${item.price}`"
               :route="item.route"
+              :old-price="item.old_price"
           >
             <img class="max-h-[200px]" :src="`${BACKEND_URL}/${item.image}`" alt="Изображение товара">
           </TheProductItem>
