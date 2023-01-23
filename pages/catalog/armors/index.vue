@@ -13,6 +13,7 @@
           :id="item.id"
           :name="item.name"
           :price="item.price"
+          :old-price="item.old_price"
           route="armors"
       >
         <img :src="`${config.public.backendURL}/${item.images[0]}`" alt="Изображение товара" class="max-h-[320px]">
