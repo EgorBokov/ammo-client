@@ -71,11 +71,6 @@
               </section>
             </header>
           </article>
-          <article class="my-2">
-            <section>
-              <p class="font-bold mt-[5px]">Оптовые продажи осуществляются от определённой суммы (200.000₽)</p>
-            </section>
-          </article>
           <article>
             <header class="font-bold">
               На крупные партии действует скикдка <span class="font-bold">10%</span>

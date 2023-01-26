@@ -1,13 +1,10 @@
 <template>
   <TheContainer title="Моя корзина">
     <div v-if="basket.length">
-      <p v-if="totalPrice < MINIMAL_PRICE" class="italic mb-[10px]">Минимальный лимит для оформления заказа : 200.000₽</p>
       <div class="flex items-center justify-between">
         <button
             class="bg-bumblebee duration-300 hover:bg-light-gray px-[10px] py-[6px] rounded-[10px] cursor-pointer"
             @click="createOrder"
-            :disabled="totalPrice < MINIMAL_PRICE"
-            :class="(totalPrice < MINIMAL_PRICE) ? 'cursor-default': ''"
         >
           Оформить заказ
         </button>
@@ -67,8 +64,6 @@
 
     return _totalPrice
   })
-
-  const MINIMAL_PRICE: number = 200000 as const
 
   const commonValue = computed(() => {
     let totalAmount = 0
